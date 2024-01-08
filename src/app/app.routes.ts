@@ -1,3 +1,11 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'tasks'},
+  {
+    path: 'tasks',
+    loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule)
+  }
+];
+
